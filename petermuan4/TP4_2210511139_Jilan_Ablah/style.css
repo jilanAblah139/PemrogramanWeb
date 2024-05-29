@@ -1,0 +1,75 @@
+/* Jilan Ablah Hanifah 2210511139 */
+
+/* css tugas 1 */
+body{
+    font-family: Arial;
+}
+table{
+    border-collapse: collapse;
+    width: 50%;
+}
+/* tag span tulisannya akan berwarna biru*/
+span{
+    color: blue;
+}
+td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+/* tag span hover akan menjadi bold*/
+span:hover{
+    font-weight: bold;
+}
+/* tag span dalam class luarbiasa akan memiliki teks berwarna kuning, bold (karena
+pewarisan dari main tag p) dan memiliki background color green */
+span.luarbiasa:hover{
+    color: yellow;
+    background-color: green;
+}
+
+
+/* css tugas 2 */
+
+/* body tugas 2 */
+body.tugas2 {
+    font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+    font-size: large;
+    font-weight: 600;
+}
+/* header dan footer diatur teksnya tengah dengan padding bawah 2em */
+header, footer{
+    background-color: #F08519;
+    text-align: center;
+    padding-bottom: 2em;
+}
+/* pembungkus group-colomn diatur flex dan teksnya dijadiin ditengah */
+.group-colomn{
+    display: flex;
+    text-align: center;
+}
+/* kolom main 1, flexnya auto sehingga lebar nya kebagi 3sama rata*/
+.column-main1{
+    flex: auto;
+    background-color: #FDD100;
+}
+/* kolom 2 */
+.column-main2{
+    flex: auto;
+    background-color: #F6AE45;
+}
+/* kolom 3 */
+.column-main3{
+    flex: auto;
+    background-color: #FDD100;
+}
+
+/* anakam kolom 1 */
+.main1-a{
+    background-color: #FFF582;
+    padding-bottom: 2em;
+}
+.main1-b{
+    background-color: #FDD100;
+    padding-bottom: 2em;
+}

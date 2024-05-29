@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <title>Tugas 1</title>
+    <link rel="stylesheet" href="style_p5_139_Jilan.css">
+    <script lang="javascript">
+        // fungsi convert nilai ke predikat
+        function hasil(nilai) {
+            if ( nilai >= 85 && nilai <=100) {
+                return "A";
+            }
+            else if ( nilai >= 80 && nilai < 85 ) {
+                return "A-";
+            }
+            else if ( nilai >= 75 && nilai < 80 ) {
+                return "B+";
+            }
+            else if ( nilai >= 70 && nilai < 75 ) {
+                return "B";
+            }
+            else if ( nilai >= 65 && nilai < 70 ) {
+                return "B-";
+            }
+            else if ( nilai >= 60 && nilai < 65 ) {
+                return "C+";
+            }
+            else if ( nilai >= 55 && nilai < 60 ) {
+                return "C";
+            }
+            else if ( nilai >= 50 && nilai < 55 ) {
+                return "C-";
+            }
+            else if ( nilai >= 40 && nilai < 50 ) {
+                return "D";
+            }
+            else if ( nilai <  40 ) {
+                return "E";
+            }
+            else{
+                return 'Inputan tidak valid';
+            }
+        }
+        // untuk menampilkan hasil
+        window.onload = function(){
+            document.querySelector('button').addEventListener('click', function() {
+                var nilaiInput = parseInt(document.getElementById('nilai').value);
+                var predikat= hasil(nilaiInput);
+                document.getElementById('predikat').value = predikat;
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- nilai -->
+        <div class="nilai">
+            <label for="nilai" >Nilai Anda <span>:</span></label>
+            <input type="text" id="nilai">
+        </div>
+        <!-- predikat -->
+        <div class="predikat">
+            <label for="predikat">Anda Mendapatkan Predikat <span>:</span></label>
+            <!-- dibuat disable input karena digunakan sebagai ouput hasil predikat -->
+            <input type="text" id="predikat" value="" readonly>
+        </div>
+        <!-- button hasil -->
+        <button class="t1">Hasilnya</button>
+    </div>
+</body>
+</html>

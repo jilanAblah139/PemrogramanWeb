@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 4</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Car{
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+            }
+            getCarInfo(x){
+                console.log(x, "year", this.year)
+                let age = x-this.year;
+                let info = this.name+" "+age+" year";
+                return info;
+            }
+        }
+        class Machine extends Car {
+            constructor(name, year, machine){
+                super(name, year);
+                this.machine = machine;
+            }
+            getMachineInfo(x){
+                return this.getCarInfo(x) + " have type machine " + this.machine;
+            }
+        }
+        let date = new Date();
+        let year = date.getFullYear();
+        let mymachine = new Machine('Ford', 2014, "Gasoline");
+        document.write(mymachine.getMachineInfo(year));
+    </script>
+</body>
+</html>

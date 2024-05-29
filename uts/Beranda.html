@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Jilan 2210511139 -->
+    <title>Ujian Tengah Semester</title>
+    <link rel="shortcut icon" href="https://www.upnvj.ac.id/id/files/thumb/89f8a80e388ced3704b091e21f510755/520" type="image/x-icon" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+      .page-center {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+      header {
+        text-align: center;
+        background-color: rgb(17, 17, 56);
+        color: white;
+        padding: 2px;
+      }
+      .pinjamlab1-content {
+        display: flex;
+        padding: 2rem;
+        gap: 16px;
+      }
+      .pinjamlab1-left {
+        display: grid;
+        gap: 12px;
+      }
+      img {
+        width: 35vw;
+        height: 100%;
+      }
+      .judul {
+        font-size: 3em;
+        font-weight: bold;
+      }
+      .deskripsi {
+        font-size: 18px;
+        color: gray;
+      }
+      button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .button-group {
+        display: flex;
+        gap: 16px;
+      }
+      .fik {
+        padding-top: 16px;
+        text-align: center;
+        font-weight: bold;
+      }
+      button.peminatan {
+        background-color: blue;
+        color: white;
+      }
+      button.daftardiri {
+        background-color: white;
+        border: 2px solid lightgray;
+      }
+    </style>
+    <script type="text/javascript">
+      function buka_daftardiri() {
+        window.open("Datadiri.html", "_blank", "width=400,height=400");
+      }
+      function buka_peminatan() {
+        window.location = "Peminjaman.html";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h5>Ini adalah Ujian Tengah Semester Pemrograman Web. Klik ini untuk ke laman Fakultas Ilmu Komputer UPN Veteran Jakarta</h5>
+    </header>
+    <div class="page-center">
+      <div class="fik">Sistem Peminjaman Lab Fakultas Ilmu Komputer Universitas Pembangunan Nasional Veteran Jakarta</div>
+    </div>
+    <div class="pinjamlab1">
+      <div class="page-center">
+        <div class="pinjamlab1-content">
+          <div class="pinjamlab1-left">
+            <div class="judul">Selamat Datang pada Sistem Peminjaman Lab Fakultas Ilmu Komputer UPN Veteran Jakarta</div>
+            <div class="deskripsi">Sistem ini untuk sebagai tolak ukur pemahaman diri saya terhadap materi Pemrograman Web Sistem Informasi.</div>
+            <br />
+            <div class="button-group">
+              <button onclick="buka_peminatan()" class="peminatan">Mulai Mengisi Peminjaman></button>
+              <button onclick="buka_daftardiri()" class="daftardiri">Daftar Diri</button>
+            </div>
+          </div>
+          <div class="pinjamlab1-right">
+            <img src="https://new-fik.upnvj.ac.id/wp-content/uploads/2021/02/banner_fik_darkest_vignette-768x432.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

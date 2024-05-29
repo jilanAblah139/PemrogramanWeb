@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <title>Tugas 2</title>
+    <link rel="stylesheet" href="style_p5_139_Jilan.css">
+    <script lang="javascript">
+        // fungsi untuk mengecek apakah inputan user sebelumnya adalah operator, untuk menghindari double operator berdampingan
+        //  sehingga jika memencet 6-+8 maka akan menjadi 6+8, operator disesuaikan dari yang paling terakhir yang mana yg dipencet
+        // mengganti operator tanpa harus menghapus operator sebelumnya
+        function cek() {
+            var isi = document.getElementById("total").innerHTML;
+            var akhir = isi.slice(-1);
+            if (akhir == '+' || akhir  == '-' || akhir == '/' || akhir == '*') {
+                isi = isi.slice(0,  -1);
+                document.getElementById("total").innerHTML=isi;
+            }
+        }
+        // fungsi menampilkan nilai di display
+        function num(nomor) {
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi + nomor;
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi untuk menghapus  angka terakhir yang ada di display
+        function del(total) {
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi.slice(0,  -1);
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi untuk menghapus semua yang ada di display
+        function reset(total) {
+            var isi = document.getElementById("total").innerHTML;
+            isi = '';
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi menampilkan operasi matematika tambah
+        function plus() {
+            // cek terlebih dahulu
+            cek();
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi + "+";
+            // jika isi variable isi hanya + maka tidak bisa melakukan penambahan maka + tidak ditampilkan
+            if (isi =="+") {
+                isi = isi.slice(0,  -1);
+                document.getElementById("total").innerHTML=isi;
+            }
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi menampilkan operasi  matematika kurang 
+        function minus() {
+            // cek terlebih dahulu 
+            cek();
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi + '-';
+            document.getElementById("total").innerHTML=isi;
+            // tidak ada kondisi jika isi hanya - karena ada angka minus seperti -9 dll
+        }
+        // fungsi menampilkan operator matematika kali
+        function times() {
+            // cek dahulu
+            cek();
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi + '*';
+            // jika isi variable isi hanya * maka tidak bisa melakukan perkalian maka * tidak ditampilkan
+            if (isi == "*") {
+                isi = isi.slice(0,  -1);
+                document.getElementById("total").innerHTML=isi;
+            }
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi menampilkan operator matematika pembagian
+        function divide() {
+            // cek dahulu
+            cek();
+            var isi = document.getElementById("total").innerHTML;
+            isi = isi + '/';
+            // jika isi variable isi hanya / maka tidak bisa melakukan pembagian maka / tidak ditampilkan
+            if ( isi == "/") {
+                isi = isi.slice(0,  -1);
+                document.getElementById("total").innerHTML=isi;
+            }
+            document.getElementById("total").innerHTML=isi;
+        }
+        // fungsi untuk menampilkan hasil
+        function equals() {
+            // cek dahulu
+            cek();
+            var isi = document.getElementById('total').innerHTML;
+            // convert variable isi menjadi integer dan float dan dapat dihitung
+            isi = eval(isi);
+            document.getElementById("total").innerHTML=isi;
+        }
+    </script>
+</head>
+<body>
+    <!-- menggunaakn table untuk tampilan kalkulator -->
+    <table border="1px solid black" cellpadding="0" >
+        <!-- row display -->
+        <tr>
+            <td colspan="4" class="headtb"><span id="total"></span></td>
+        </tr>
+        <!-- row 2 operator reset, del, bagi-->
+        <tr>
+            <td colspan="2" ><button class="number" onclick="reset()">C</button></td>
+            <td><button class="number" onclick="del()">&larr;</button></td>
+            <td><button class="operator" onclick="divide()" class="" id="divide">&divide;</button></td>
+        </tr>
+        <!-- row 3 number 7,8,9,dan operator kali -->
+        <tr>
+            <td><button class="number" onclick="num(7)">7</button></td>
+            <td><button class="number" onclick="num(8)">8</button></td>
+            <td><button class="number" onclick="num(9)">9</button></td>
+            <td><button class="operator" onclick="times()" class="" id="times">&times;</button></td>
+        </tr>
+        <!-- row 4 number 4,5,6,dan operator kurang -->
+        <tr>
+            <td><button class="number" onclick="num(4)">4</button></td>
+            <td><button class="number" onclick="num(5)">5</button></td>
+            <td><button class="number" onclick="num(6)">6</button></td>
+            <td><button class="operator" onclick="minus()" class="" id="minus">&minus;</button></td>
+        </tr>
+        <!-- row 5 number 7,8,9,dan operator tambah -->
+        <tr>
+            <td><button class="number" onclick="num(1)">1</button></td>
+            <td><button class="number" onclick="num(2)">2</button></td>
+            <td><button class="number" onclick="num(3)">3</button></td>
+            <td><button class="operator" onclick="plus()" class="" id="plus">&plus;</button></td>
+        </tr>
+        <!-- row 6 number 0 dan operator hasil -->
+        <tr>
+            <td colspan="3"><button  class="number" onclick="num(0)">0</button></td>
+            <td><button onclick="equals()" class="operator" id="equals">&equals;</button></td>
+        </tr>
+    </table>
+</body>
+</html>

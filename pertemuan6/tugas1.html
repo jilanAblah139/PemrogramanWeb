@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tugas 1</title>
+    <style>
+        .required::after{
+            content: "*";
+            color: red;
+        }
+        .datamhs{
+            display: grid;
+            gap: 2rem;
+        }
+        button{
+            width: fit-content;
+        }
+        h1{
+            font-weight: lighter;
+        }
+        body{
+            padding: 3rem;
+
+        }
+    </style>
+    <script type="text/javascript">
+        function buka_popup() {
+            var nama = document.getElementById("nama").value;
+            var nim = document.getElementById("nim").value;
+            var tahunMasuk = document.getElementById("tahunmasuk").value;
+            var jk = document.getElementsByName('gender');
+            var selectedValue;
+            for (let i = 0; i < jk.length; i++) {
+                if (jk[i].checked) {
+                    selectedValue = jk[i].value;
+                    break;
+                    }
+            }
+            console.log(selectedValue)
+            var queryString = '?nim=' + encodeURIComponent(nim) +
+                              '&nama=' + encodeURIComponent(nama) +
+                              '&tahunMasuk=' + encodeURIComponent(tahunMasuk) +
+                              '&selectedValue=' + encodeURIComponent(selectedValue);
+             
+            if (nama.trim() ==='' || nim.trim() === '' || tahunMasuk.trim() ==='' || selectedValue.trim() ==='') {
+                alert('Harap isi semua data!');
+                return;
+            }
+
+            window.open('pop_uptugas1.html' + queryString, '', 'width=640, height=480, menubar=yes, location=yes, scrollbars=yes, resizeable=yes, status=yes, copyhistory=yes, toolbar=no');
+        }
+    </script>
+</head>
+<body>
+    <div class="datamhs">
+        <h1>Isi Data Mahasiswa</h1>
+        <div class="nimNama">
+           <label for="nim" >NIM<span class="required"></span> : </label><input type="text" name="nimm" id="nim" required>
+           <br><br>
+           <label for="nama">Nama Mahasiswa <span class="required"></span> : </label><input type="text" name="nama" id="nama" required>
+        </div>
+        <div class="jk">
+            Jenis Kelamin: <br>
+            <input type="radio" id="male" name="gender" value="Pria"><label for="male">Pria</label>
+            <input type="radio" id="female" name="gender" value="Wanita"><label for="female">Wanita</label>
+        </div>
+        <div class="thnMasuk">
+            <label for="tahunmasuk">Tahun Masuk <span class="required"></span> : <input type="text" name="idthun" id="tahunmasuk" required></label>
+        </div>
+        <button onclick="buka_popup()">Submit</button>
+    </div>
+</body>
+</html>

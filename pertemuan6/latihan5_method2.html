@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 4</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Car{
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+            }
+            getCarInfo(x){
+                let age = x-this.year;
+                let info = this.name+" "+age;
+                return info;
+            }
+        }
+        let myCar = new Car("Ford", 2014);
+        let youcar = new Car("yaris", 2016);
+        let date = new Date();
+        let year = date.getFullYear();
+        document.write(myCar.getCarInfo(year));
+        document.write(youcar.getCarInfo(year));
+    </script>
+</body>
+</html>

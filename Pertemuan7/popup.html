@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class dataMahasiswa{
+            constructor(nim, nama, akt, infoProdi){
+                this.nim = nim;
+                this.nama = nama;
+                this.akt = akt;
+                this.prodi= prodi;
+            }
+            getNim(){
+                let infonim = 'Nim: '+this.nim+',';
+                return infonim;
+            }
+            getNama(){
+                let infoNama='Nama: '+this.nama+',';
+                return infoNama;
+            }
+            getProdi(){
+                let infoProdi='Program Studi: '+this.prodi+',';
+                return infoProdi;
+            }
+        }
+        class semester extends dataMahasiswa{
+            constructor(akt, year){
+                super(akt);
+                this.year = year;
+            }
+            getInfoSem(){
+                let semester = (this.year - akt)*2;
+                return 'semester: '+ '<b>'+ semester;
+            }
+        }
+        // Mendapatkan nilai dari parameter URL
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+
+        // Mendapatkan nilai-nilai yang dikirim dari halaman sebelumnya
+        var nim = urlParams.get('nim');
+        var nama = urlParams.get('nama');
+        var akt = urlParams.get('akt');
+        var prodi = urlParams.get('prodi');
+        var jumlahsks = urlParams.get('jumlahsks');
+        var label = urlParams.get('label');
+        jumlahsks = jumlahsks.slice(0,-1)
+        var jumlahsks2;
+        jumlahsks2 = eval(jumlahsks);
+        const dataMhw = new dataMahasiswa(nim, nama, akt, prodi);
+        let date = new Date();
+        let year = date.getFullYear();
+
+        document.write(dataMhw.getNim());
+        document.write("<br>");
+        document.write(dataMhw.getNama());
+        document.write("<br>");
+        document.write(dataMhw.getProdi());
+        document.write("<br>");
+        const smt = new semester(akt, year);
+        document.write(smt.getInfoSem());
+        document.write("<br>");
+        document.write("Mata Kuliah Yang Di Kontrak:");
+        document.write("<br>");
+        document.write(label);
+        document.write("<br>");
+        document.write("Jumlah Sks yang dikontrak: ");
+        document.write(jumlahsks2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kuis - IF D</title>
+	<style>
+		body {
+		  background: #456;
+		  font-family: 'Open Sans', sans-serif;
+		}
+		.login {
+		  width: 400px;
+		  margin: 16px auto;
+		  font-size: 16px;
+		}
+		/* Reset top and bottom margins from certain elements */
+		.login-header,
+		.login p {
+		  margin-top: 0;
+		  margin-bottom: 0;
+		}
+		.login-header {
+		  background: #28d;
+		  padding: 20px;
+		  font-size: 1.1em;
+		  font-weight: normal;
+		  text-align: center;
+		  text-transform: uppercase;
+		  color: #fff;
+		}
+		.login-container {
+		  background: #ebebeb;
+		  padding: 12px;
+		}
+		/* Every row inside .login-container is defined with p tags */
+		.login p {
+		  padding: 12px;
+		}
+		.login input, .login select{
+		  box-sizing: border-box;
+		  display: block;
+		  width: 100%;
+		  border-width: 1px;
+		  border-style: solid;
+		  padding: 16px;
+		  outline: 0;
+		  font-family: inherit;
+		  font-size: 0.95em;
+		}
+		.login input[id="nim"],
+		.login input[id="nama"],
+		.login input[id="angkatan"],
+		.login option[id="prodi"] {
+		  background: #fff;
+		  border-color: #bbb;
+		  color: #555;
+		}
+		/* Text fields' focus effect */
+		.login input[id="nim"]:focus,
+		.login input[id="nama"]:focus,
+		.login input[id="angkatan"]{
+		  border-color: #888;
+		}
+		.login input[type="button"] {
+		  background: #28d;
+		  border-color: transparent;
+		  color: #fff;
+		  cursor: pointer;
+		}
+		.login input[type="button"]:hover {
+		  background: #17c;
+		}
+		/* Buttons' focus effect */
+		.login input[type="button"]:focus {
+		  border-color: #05a;
+		}
+		.checkbox-container{
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		function kontrak() {
+		
+		var nim = document.getElementById("nim");
+		var nama = document.getElementById("nama");
+		var angkatan = document.getElementById("angkatan");
+		var mk = [];
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+		for (var i = 0; i < checkboxes.length; i++) {
+		  mk.push(checkboxes[i].value);
+		}
+		
+		
+		var validasiAngka = /^[0-9]+$/;
+		var validasiHuruf = /^[a-zA-Z ]+$/;
+		
+		if(nim.value != "" && nama.value != "" && angkatan.value != "" && prodi.value != "" && mk != ""){
+			if(nim.value.match(validasiAngka)){
+				if(nama.value.match(validasiHuruf)){
+					if(angkatan.value.match(validasiAngka)){
+						alert("Pengisian Berhasil!");
+						
+						
+						let url= "kuis_d_2.html?nim="+nim.value+"&nama="+nama.value+"&angkatan="+angkatan.value+"&mk="+mk;
+						window.open(url, "_blank", "width=400,height=400");
+					}else{
+					  alert("Masukkan Tahun Angkatan Anda Salah!\nFormat wajib angka!");
+					  tahun.value="";
+					  tahun.focus();
+					  return false;
+					}
+					
+				}else{
+				  alert("Masukkan Nama Anda Salah!\nFormat wajib huruf!");
+				  nama.value="";
+				  nama.focus();
+				  return false;
+				}
+			}else{
+			  alert("Masukkan nim Anda Salah!\nFormat wajib angka!");
+			  nim.value="";
+			  nim.focus();
+			  return false;
+			}
+			
+		}else{
+		  alert("Masukkan Kosong! Mohon Isi Terlebih dahulu inputan");
+		  nim.value="";
+		  nama.value="";
+		  angkatan.value="";
+		  prodi.value="";
+		  mk.value="";
+		  nim.focus();
+		  return false;
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="login">
+		<h2 class="login-header">
+			Form Isi Kontrak Mata Kuliah UPN Veteran Jakarta
+			<img src="logo.png" width="20px" height="20px"/>
+		</h2>
+		
+		
+		<div class="login-container">
+			<p>
+				<input type="text" id="nim" placeholder="NIM Mahasiswa">
+			</p>
+			<p>
+				<input text="text" id="nama" placeholder="Nama ">
+			</p>
+			<p>
+				<input text="text" id="angkatan" placeholder="Angkatan Anda">
+			</p>
+			<p>
+				<select id="prodi" >
+					<option value="">Pilih Program Studi</option>
+					<option value="D3SI">D3 Sistem Informasi</option>
+					<option value="S1SI">S1 Sistem Informasi</option>
+					<option value="S1IF">S1 Informatika</option>
+				</select>
+			</p>
+			<div id="D3SICheckboxes" class="checkbox-container">
+				<fieldset>
+					<legend>Kontrak Mata Kuliah</legend>
+					  <table>
+						  <tr>
+							  <td><label for="md">Mobile Developer</label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="Mobile Developer" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="wd">Web Developer</label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="Web Developer"/></td>
+						  </tr>
+					  </table>
+				  </fieldset>
+			</div>
+			<div id="S1IFCheckboxes" class="checkbox-container">
+				<fieldset>
+					<legend>Kontrak Mata Kuliah</legend>
+					  <table>
+						  <tr>
+							  <td><label for="bd">Basis Data</label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="Basis Data 3 SKS" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="pw">Pemrograman Web </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="Pemrograman Web 3 SKS" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="dm">Data Mining</label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="Data Mining 3 SKS" /></td>
+						  </tr>
+					  </table>
+				  </fieldset>
+			</div>
+			<p>
+				<input type="button" value="Kontrak" onclick="kontrak();">
+			</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	document.getElementById('prodi').addEventListener('change', function() {
+		var selectedOption = this.value;
+		console.log(selectedOption);
+		console.log(prodi);
+		sessionStorage.setItem("selectedOption", selectedOption);
+		var D3SICheckboxes = document.getElementById('D3SICheckboxes');
+		var S1IFCheckboxes = document.getElementById('S1IFCheckboxes');
+
+		if (selectedOption === 'D3SI') {
+			D3SICheckboxes.style.display = 'block';
+			S1IFCheckboxes.style.display = 'none';
+		} else if (selectedOption === 'S1IF') {
+			D3SICheckboxes.style.display = 'none';
+			S1IFCheckboxes.style.display = 'block';
+		} else {
+			S1IFCheckboxes.style.display = 'none';
+			D3SICheckboxes.style.display = 'none';}});
+</script>
+</html>

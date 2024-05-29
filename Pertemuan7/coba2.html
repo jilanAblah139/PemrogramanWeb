@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown with Checkbox</title>
+<style>
+  .dropdown-container {
+    margin-top: 20px;
+  }
+
+  .checkbox-container {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<select id="categoryDropdown">
+  <option value="food">Makanan</option>
+  <option value="drink">Minuman</option>
+</select>
+
+
+<div id="foodCheckboxes" class="checkbox-container">
+    <fieldset>
+        <legend>Kontrak Mata Kuliah</legend>
+          <table>
+              <tr>
+                  <td><label for="bd">Basis Data - 3 SKS</label></td>
+                  <td><input type="checkbox" id="mk" name="mk" value="Basis Data 3 SKS" /></td>
+              </tr>
+              <tr>
+                  <td><label for="pw">Pemrograman Web - 3 SKS</label></td>
+                  <td><input type="checkbox" id="mk" name="mk" value="Pemrograman Web 3 SKS" /></td>
+              </tr>
+              <tr>
+                  <td><label for="dm">Data Mining - 3 SKS</label></td>
+                  <td><input type="checkbox" id="mk" name="mk" value="Data Mining 3 SKS" /></td>
+              </tr>
+          </table>
+      </fieldset>
+</div>
+
+<div id="drinkCheckboxes" class="checkbox-container">
+  <input type="checkbox" id="jusCheckbox">
+  <label for="jusCheckbox">Jus</label><br>
+  <input type="checkbox" id="tehCheckbox">
+  <label for="tehCheckbox">Teh</label><br>
+  <input type="checkbox" id="airPutihCheckbox">
+  <label for="airPutihCheckbox">Air Putih</label><br>
+</div>
+
+<script>
+document.getElementById('categoryDropdown').addEventListener('change', function() {
+  var selectedOption = this.value;
+  var foodCheckboxes = document.getElementById('foodCheckboxes');
+  var drinkCheckboxes = document.getElementById('drinkCheckboxes');
+
+  if (selectedOption === 'food') {
+    foodCheckboxes.style.display = 'block';
+    drinkCheckboxes.style.display = 'none';
+  } else if (selectedOption === 'drink') {
+    foodCheckboxes.style.display = 'none';
+    drinkCheckboxes.style.display = 'block';
+  } else {
+    foodCheckboxes.style.display = 'none';
+    drinkCheckboxes.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* umum */
+
+/* agar ditengah layar */
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    font-size: large;
+    display: flex;
+}
+
+label {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+}
+
+span{
+    margin: 0px 2px 0px 2rem;
+}
+
+button{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* tugas 1 */
+
+/*button menyesuaikan tampilan masing2 sehingga dibuat yg khusus tugas 1*/
+button.t1{
+    width: min-content;
+    border: 1px solid black;
+}
+button:hover.t1{
+    cursor: pointer;
+    border: cornflowerblue 2px solid;
+}
+
+.container{
+    background-color: #a4ddf7;
+    padding: 3rem;
+    border-radius: 16px;
+    display: grid;
+    gap: 14px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.nilai, .predikat{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* tugas 2  */
+
+/* mengatur lebar dan tinggi table */
+table{
+    border-collapse: collapse;
+    height:400px;
+    width: 250px;
+    border: 2px solid black;
+}
+/* mengatur activitas setelah memencet tombol kalkulator */
+button:active.operator, button:active.number {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3); /* Bayangan saat dipencet */
+    background-color: #ff8b16; /* Warna latar belakang saat dipencet */
+}
+/* untuk tampilan display kalkulator yg paling atas */
+.headtb{
+    background-color: rgb(37, 37, 37);
+    color: white;
+    padding: 0 1rem;
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* class operator untuk button operator yang di kanan */
+.operator{
+    background-color: orange;
+    color: white;
+    font-weight: medium;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: inset;
+}
+/* untuk yang selain yg dikanan */
+.number{
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ujian Tengah Semester</title>
+</head>
+<style>
+    body{
+        font-family:system-ui, -apple-system;
+    }
+    .page-center{
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+    header{
+        text-align: center;
+        background-color: rgb(17,17,56);
+        color: white;
+    }
+    .hero-content{
+        display: flex;
+        padding: 2rem;
+        gap: 16px;
+    }
+    .hero-left{
+        display: grid;
+        gap: 12px;
+    }
+    img {
+        width:  35vw;
+        height: 100%;
+    }
+    .judul{
+        font-size:  3em;
+        font-weight: bold;
+    }
+    .deskripsi{
+        font-size: 18px;
+        color: gray;
+    }
+    button{
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .button-group{
+        display: flex;
+        gap: 16px;
+    }
+    .fik{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding-top: 16px;
+        text-align: center;
+        font-weight: bold;
+    }
+    button.peminatan{
+        background-color: blue;
+        color: white;
+    }
+    button.daftardiri{
+        background-color: white;
+        border: 2px solid lightgray;
+    }
+</style>
+<script type="text/javascript">
+    function buka_peminatan() {
+        window.open('kuis.html', '', 'width=640, height=480, menubar=yes, location=yes, scrollbars=yes, resizeable=yes, status=yes, copyhistory=yes, toolbar=no');
+}
+    function buka_daftardiri(params) {
+        window.open('latihanuts3.html', "_blank", "width=400,height=400");
+    }
+</script>
+<body>
+    <header>
+        ini adalah contoh bagaimana aku buat web ini
+    </header>
+    <div class="page-center">
+        <div class="fik">
+            Sistem  Informasi Pendaftaran (SPIP) Fakultas Ilmu Komputer Universitas Brawijaya
+        </div>
+    </div>
+    <div class="hero">
+        <div class="page-center">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="judul">
+                        
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        
+                    </div>
+                    <div class="deskripsi">
+                        sistem ini untuk lorem ipsum dolor si amret
+                    </div>
+                    <br>
+                    <div class="button-group">
+                        <button onclick="buka_peminatan()" class="peminatan"> Mulai Mengisi Peminatan >
+                        </button>
+                        <button onclick="buka_daftardiri()" class="daftardiri"> Daftar Diri </button>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <img src="https://new-fik.upnvj.ac.id/wp-content/uploads/2021/02/banner_fik_darkest_vignette-768x432.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

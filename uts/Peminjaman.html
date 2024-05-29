@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Jilan 2210511139 -->
+	<title>Kuis - IF D</title>
+	<style>
+		body {
+		  background: #456;
+		  font-family: 'Open Sans', sans-serif;
+		}
+		.login {
+		  width: 400px;
+		  margin: 16px auto;
+		  font-size: 16px;
+		}
+		/* Reset top and bottom margins from certain elements */
+		.login-header,
+		.login p {
+		  margin-top: 0;
+		  margin-bottom: 0;
+		}
+		.login-header {
+		  background: #28d;
+		  padding: 20px;
+		  font-size: 1.1em;
+		  font-weight: normal;
+		  text-align: center;
+		  text-transform: uppercase;
+		  color: #fff;
+		}
+		.login-container {
+		  background: #ebebeb;
+		  padding: 12px;
+		}
+		/* Every row inside .login-container is defined with p tags */
+		.login p {
+		  padding: 12px;
+		}
+		.login input, .login select{
+		  box-sizing: border-box;
+		  display: block;
+		  width: 100%;
+		  border-width: 1px;
+		  border-style: solid;
+		  padding: 16px;
+		  outline: 0;
+		  font-family: inherit;
+		  font-size: 0.95em;
+		}
+		.login input[id="nim"],
+		.login input[id="nama"],
+		.login input[id="sems"],
+		.login option[id="lantai"] {
+		  background: #fff;
+		  border-color: #bbb;
+		  color: #555;
+		}
+		/* Text fields' focus effect */
+		.login input[id="nim"]:focus,
+		.login input[id="nama"]:focus,
+		.login input[id="sems"]{
+		  border-color: #888;
+		}
+		.login input[type="button"] {
+		  background: #28d;
+		  border-color: transparent;
+		  color: #fff;
+		  cursor: pointer;
+		}
+		.login input[type="button"]:hover {
+		  background: #17c;
+		}
+		/* Buttons' focus effect */
+		.login input[type="button"]:focus {
+		  border-color: #05a;
+		}
+		.checkbox-container{
+			display: none;
+		}
+        
+	</style>
+	<script type="text/javascript">
+		function submit() {
+		
+		var nim = document.getElementById("nim");
+		var nama = document.getElementById("nama");
+		var sems = document.getElementById("sems");
+		var mk = [];
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+		for (var i = 0; i < checkboxes.length; i++) {
+		  mk.push(checkboxes[i].value);
+		}
+		var validasiAngka = /^[0-9]+$/;
+		var validasiHuruf = /^[a-zA-Z ]+$/;
+		
+        if (sems.value<2) {
+            alert("Mahasiswa belum bisa mengajukan peminajaman lab! Harus Semester2 keatas");
+            return false;
+        }
+
+		if(nim.value != "" && nama.value != "" && sems.value != "" && lantai.value != "" && mk != ""){
+			if(nim.value.match(validasiAngka)){
+				if(nama.value.match(validasiHuruf)){
+					if(sems.value.match(validasiAngka)){
+						alert("Pengisian Berhasil!");
+						
+						
+						let url= "HasilPeminjaman.html?nim="+nim.value+"&nama="+nama.value+"&sems="+sems.value+"&mk="+mk;
+						window.open(url, "_blank", "width=400,height=400");
+					}else{
+					  alert("Masukkan Semester Anda Salah!\nFormat wajib angka!");
+					  tahun.value="";
+					  tahun.focus();
+					  return false;
+					}
+					
+				}else{
+				  alert("Masukkan Nama Anda Salah!\nFormat wajib huruf!");
+				  nama.value="";
+				  nama.focus();
+				  return false;
+				}
+			}else{
+			  alert("Masukkan nim Anda Salah!\nFormat wajib angka!");
+			  nim.value="";
+			  nim.focus();
+			  return false;
+			}
+			
+		}else{
+		  alert("Masukkan Kosong! Mohon Isi Terlebih dahulu inputan");
+		  nim.value="";
+		  nama.value="";
+		  sems.value="";
+		  lantai.value="";
+		  mk.value="";
+		  nim.focus();
+		  return false;
+		}
+	}
+    function kembalihalaman1() {
+		window.location = "Beranda.html";
+    }
+	</script>
+</head>
+<body>
+	<div class="login">
+		<h2 class="login-header">
+			Form Isi Peminjaman Kelas UPN Veteran Jakarta
+            <img src="https://www.upnvj.ac.id/id/files/thumb/89f8a80e388ced3704b091e21f510755/520" width="20px" height="20px"/>
+		</h2>
+		
+		
+		<div class="login-container">
+			<p>
+				<input type="text" id="nim" placeholder="NIM Mahasiswa">
+			</p>
+			<p>
+				<input text="text" id="nama" placeholder="Nama Mahasiswa">
+			</p>
+			<p>
+				<input text="text" id="sems" placeholder="Semester Mahasiswa">
+			</p>
+			<p>
+				<select id="lantai" >
+					<option value="">Pilih Lantai</option>
+					<option value="L1">Lantai 1</option>
+					<option value="L2">Lantai 2</option>
+					<option value="L3">Lantai 3</option>
+				</select>
+			</p>
+			<div id="lantai1" class="checkbox-container">
+				<fieldset>
+					<legend>Pilih Lantai</legend>
+					  <table>
+						  <tr>
+							  <td><label for="f101">FIK-LAB 101 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 101" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="f102">FIK-LAB 102 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 102"/></td>
+						  </tr>
+                          <tr>
+                            <td><label for="f103">FIK-LAB 103 </label></td>
+                            <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 103"/></td>
+                        </tr>
+					  </table>
+				  </fieldset>
+			</div>
+			<div id="lantai2" class="checkbox-container">
+				<fieldset>
+					<legend>Pilih Lantai</legend>
+					  <table>
+						  <tr>
+							  <td><label for="f201">FIK-LAB 201 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 201" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="f202">FIK-LAB 202 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 202"/></td>
+						  </tr>
+                          <tr>
+                            <td><label for="f203">FIK-LAB 203 </label></td>
+                            <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 203"/></td>
+                        </tr>
+					  </table>
+				  </fieldset>
+			</div>
+            <div id="lantai3" class="checkbox-container">
+				<fieldset>
+					<legend>Pilih Lantai</legend>
+					  <table>
+						  <tr>
+							  <td><label for="f101">FIK-LAB 301 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 301" /></td>
+						  </tr>
+						  <tr>
+							  <td><label for="f102">FIK-LAB 302 </label></td>
+							  <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 302"/></td>
+						  </tr>
+                          <tr>
+                            <td><label for="f103">FIK-LAB 303 </label></td>
+                            <td><input type="checkbox" id="mk" name="mk" value="FIK-LAB 303"/></td>
+                        </tr>
+					  </table>
+				  </fieldset>
+			</div>
+			<p>
+				<input type="button" value="Submit" onclick="submit();">
+			</p>
+            <p>
+				<input type="button" value="Kembali Ke Halaman Utama" onclick="kembalihalaman1();">
+			</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	document.getElementById('lantai').addEventListener('change', function() {
+		var selectedOption = this.value;
+		console.log(selectedOption);
+		console.log(lantai);
+		sessionStorage.setItem("selectedOption", selectedOption);
+		var lantai1 = document.getElementById('lantai1');
+		var lantai2 = document.getElementById('lantai2');
+        var lantai3 = document.getElementById('lantai3');
+
+		if (selectedOption === 'L1') {
+			lantai1.style.display = 'block';
+			lantai2.style.display = 'none';
+            lantai3.style.display = 'none';
+		} else if (selectedOption === 'L2') {
+			lantai1.style.display = 'none';
+			lantai2.style.display = 'block';
+            lantai3.style.display = 'none';
+		} else if (selectedOption === 'L3') {
+			lantai1.style.display = 'none';
+			lantai2.style.display = 'none';
+            lantai3.style.display = 'block';}
+        else {
+			lantai1.style.display = 'none';
+			lantai2.style.display = 'none';
+            lantai3.style.display = 'none';
+            }});
+</script>
+</html>

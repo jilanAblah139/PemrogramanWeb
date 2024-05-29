@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Jilan Ablah Hanifah 2210511139 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    background-color: rgb(206, 201, 201);
+    
+}
+.judul{
+    text-align: center;
+    background-color: blue;
+    color: white;
+    padding: 2rem;
+}
+.biodatainput{
+    text-align: center;
+    padding: 2rem;
+    display: grid;
+}
+.kontrakkuliah{
+    border: 1px solid black;
+    padding: 1rem;
+    text-align:left;
+}
+button{
+    background-color: blue;
+    color: wheat;
+}
+
+    </style>
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function buka_popup() {
+            var nama = document.getElementById("nama").value;
+            var nim = document.getElementById("nim").value;
+            var akt = document.getElementById("akt").value;
+            var prodi = document.getElementById("prodi").value;
+            var sks = document.getElementsByName('sks');
+            var jumlahsks; var label;
+            jumlahsks ='';
+            for (let i = 0; i < sks.length; i++) {
+                if (sks[i].checked) {
+                    jumlahsks = (sks[i].value) + jumlahsks;
+                    label  = sks[i].labels[0].innerHTML ;
+                }
+            }
+            
+            var queryString = '?nim=' + encodeURIComponent(nim) +
+                              '&nama=' + encodeURIComponent(nama) +
+                              '&akt=' + encodeURIComponent(akt) +
+                              '&prodi='+ encodeURIComponent(prodi)+
+                              '&jumlahsks='+ encodeURIComponent(jumlahsks)+
+                              '&label='+encodeURIComponent(label);
+             
+            if (nama.trim() ==='' || nim.trim() === '' || akt.trim() ==='' || prodi.trim() ==='') {
+                alert('Harap isi semua data!');
+                return;
+            }
+            window.open('popup.html' + queryString, '', 'width=640, height=480, menubar=yes, location=yes, scrollbars=yes, resizeable=yes, status=yes, copyhistory=yes, toolbar=no');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="judul">
+            <p>FORM ISI KONTRAK MATA KULIAH <br> UPN VETERAN JAKARTA</p>
+        </div>
+        <div class="biodatainput">
+            <input type="number" name="nimm" id="nim"  placeholder="Nim" required>
+            <br><br>
+            <input type="text" name="nama" id="nama" placeholder="Nama">
+            <br><br>
+            <input type="number" name="akt" id="akt" placeholder="Angkatan" required>
+            <br><br>
+            <input type="text" name="prodi" id="prodi" placeholder="Program Studi" required>
+            <br> <br>
+            <div class="kontrakkuliah">
+                <label for="bd">Basis Data - 3 SKS</label><input type="checkbox" id="bd" name="sks" value='3+'>
+                <br>
+                <label for="pw">Pemrograman Web - 3 SKS</label><input type="checkbox" id="pw" name="sks" value='3+'>
+                <br>
+                <label for="dm">Data Mining 3 - SKS</label><input type="checkbox" id="dm" name="sks" value='3+'>
+             </div> <br> <br>
+             <button onclick="buka_popup()">Submit</button>
+         </div>
+        
+         
+    </div>
+</body>
+</html>

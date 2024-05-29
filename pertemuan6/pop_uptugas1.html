@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Window</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class dataMahasiswa{
+            constructor(nim, nama, tahunMasuk, jk){
+                this.nim = nim;
+                this.nama = nama;
+                this.tahunMasuk = tahunMasuk;
+                this.jk= jk;
+            }
+            getNim(){
+                let infonim = 'Nim anda: '+this.nim+',';
+                return infonim;
+            }
+            getNama(){
+                let infoNama='Nama anda: '+this.nama+',';
+                return infoNama;
+            }
+            getTahunMasuk(){
+                let infoThnMsk='Tahun masuk anda: '+this.tahunMasuk+',';
+                return infoThnMsk;
+            }
+            getjk(){
+                let  infoJK ='Jenis Kelamin anda: '+this.jk+',';
+                return infoJK;
+            }
+            getSemester(year){
+                let semester =  year - this.tahunMasuk;
+                return 'dan anda berarti sekarang semester '+'<b>' + semester;
+            }
+        }
+        // Mendapatkan nilai dari parameter URL
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+
+        // Mendapatkan nilai-nilai yang dikirim dari halaman sebelumnya
+        var nim = urlParams.get('nim');
+        var nama = urlParams.get('nama');
+        var tahunMasuk = urlParams.get('tahunMasuk');
+        var selectedValue = urlParams.get('selectedValue');
+        
+        const dataMhw = new dataMahasiswa(nim, nama, tahunMasuk, selectedValue);
+        let date = new Date();
+        let year = date.getFullYear();
+
+        document.write(dataMhw.getNim());
+        document.write("<br>");
+        document.write(dataMhw.getNama());
+        document.write("<br>");
+        document.write(dataMhw.getjk());
+        document.write("<br> <br>");
+        
+        document.write(dataMhw.getTahunMasuk());
+        document.write("<br>");
+        document.write(dataMhw.getSemester(year));
+        </script>
+</body>
+</html>

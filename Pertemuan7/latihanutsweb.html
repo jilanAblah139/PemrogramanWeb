@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+    function klik() {
+        var name  = document.getElementById("name").value;
+        if (name.trim()==="") {
+            alert("Nama Harus dimasukkan!");
+        }else{
+            alert("terima kasih "+name);
+        }
+    }
+</script>
+<body>
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name"><br><br>
+    <button onclick="klik()">Kirim</button>
+</body>
+</html>
